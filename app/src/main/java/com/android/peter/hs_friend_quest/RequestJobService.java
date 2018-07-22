@@ -38,7 +38,7 @@ public class RequestJobService extends JobService {
                 try {
                     HTMLParse(response.body().string());
                     if(stack != null){
-
+                        sendNotification();
                     }
                 }catch (Exception e){
                     Log.e(TAG, "onResponse: "+e.getMessage() );
@@ -54,7 +54,6 @@ public class RequestJobService extends JobService {
 
     @Override
     public boolean onStopJob(JobParameters job) {
-        stack.clear();
         return true;
     }
 
@@ -78,11 +77,12 @@ public class RequestJobService extends JobService {
         editor.putString("last_content",last_content);
         editor.apply();
     }
-    private void sendNotification(ArrayList<AquiredData> list) {
-        for(AquiredData data: list){
+    private void sendNotification() {
+        for(AquiredData data: stack){
             if(data.getCONTENT().contains("友誼")){
-                
+
             }
         }
+        stack.clear();
     }
 }
