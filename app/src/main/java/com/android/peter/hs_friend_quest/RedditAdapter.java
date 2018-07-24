@@ -29,7 +29,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditHolder> {
     @Override
     public void onBindViewHolder(@NonNull RedditHolder holder, int position) {
         holder.setTextID(list.get(position).getID());
-        holder.setTextContent(list.get(position).getCONTENT().substring(2));
+        holder.setTextContent(list.get(position).getCONTENT());
         holder.setTextTime(list.get(position).getTIME());
     }
 

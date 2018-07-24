@@ -95,7 +95,10 @@ public class RedditFragment extends Fragment {
                if (!Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("done") &&
                        !Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("finish")&&
                     !Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("complete")&&
-                    !Top.get(i).select("a.s1461iz-1").text().isEmpty()) {
+                    !Top.get(i).select("a.s1461iz-1").text().isEmpty()&&
+                       Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("#") &&
+                       (Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("trade")||
+                               Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("quest"))) {
                    try {
                        list.add(new AquiredData(
                                Top.get(i).select("a.s1461iz-1").text(),
