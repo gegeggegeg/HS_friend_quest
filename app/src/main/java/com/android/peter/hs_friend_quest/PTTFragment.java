@@ -29,6 +29,7 @@ public class PTTFragment extends Fragment {
 
     private static final String TAG = "PTTFragment";
     private ArrayList<AquiredData> stack = new ArrayList<>();
+    public static final String BASE_URL = "https://www.ptt.cc/bbs/";
     private static View result;
     private Call<ResponseBody> call;
 
@@ -52,16 +53,9 @@ public class PTTFragment extends Fragment {
             RequestData();
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if(call != null)
-            call.cancel();
-    }
-
     private void RequestData(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(RequestJobService.BASE_URL)
+                .baseUrl(BASE_URL)
                 .build();
         CallService service = retrofit.create(CallService.class);
         call = service.url();

@@ -12,15 +12,16 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
+        /*switch (position){
             case 0:
-                return new PTTFragment();
+                return ptt;
             case 1:
-                return new PTTFragment();
+                return ptt;
             case 2:
-                return new PTTFragment();
+                return ptt;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException();*/
+        return  new PTTFragment();
     }
 
     @Override
