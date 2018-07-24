@@ -92,9 +92,9 @@ public class RedditFragment extends Fragment {
         int i = 0;
         while (list.size()<30){
                String done = "Done: NO";
-               if (!Top.get(i).select("p.s570a4-10").text().contains("one") &&
-                       !Top.get(i).select("p.s570a4-10").text().contains("inish")&&
-                    !Top.get(i).select("p.s570a4-10").text().contains("omplete")&&
+               if (!Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("done") &&
+                       !Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("finish")&&
+                    !Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("complete")&&
                     !Top.get(i).select("a.s1461iz-1").text().isEmpty()) {
                    try {
                        list.add(new AquiredData(

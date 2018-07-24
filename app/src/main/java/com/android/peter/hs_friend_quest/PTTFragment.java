@@ -91,8 +91,7 @@ public class PTTFragment extends Fragment {
         int limit = pushes.size()-1;
         ArrayList<String> donelist = new ArrayList<>();
         for(int i =0; i <20;){
-            if(pushes.get(limit).select("span").get(2).text().contains("Done") ||
-                    pushes.get(limit).select("span").get(2).text().contains("done")){
+            if(pushes.get(limit).select("span").get(2).text().toLowerCase().contains("done")){
                 donelist.add(pushes.get(limit).select("span").get(1).text());
             }
             if(pushes.get(limit).select("span").get(2).text().contains("友誼")||

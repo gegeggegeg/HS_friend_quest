@@ -31,7 +31,7 @@ public class PwnHolder extends RecyclerView.ViewHolder implements View.OnClickLi
             int front_space = postion;
             while (input.charAt(front_space) != ' ')
                 front_space--;
-            output = input.substring(front_space,postion+4);
+            output = input.substring(front_space,postion+5);
         }catch (Exception e){
             Log.e(TAG, "BattletagIdentifier: "+e.getMessage());
         }
@@ -45,7 +45,7 @@ public class PwnHolder extends RecyclerView.ViewHolder implements View.OnClickLi
             ClipboardManager clipboard = (ClipboardManager)view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("battletage",battletag);
             clipboard.setPrimaryClip(clipData);
-            Toast.makeText(view.getContext(),"Battletag has copied to clipboard",Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(),battletag+" has been copied to clipboard",Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(view.getContext(),"Can not find Battletag",Toast.LENGTH_SHORT).show();
         }

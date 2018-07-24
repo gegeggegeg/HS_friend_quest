@@ -45,7 +45,7 @@ public class RedditHolder extends RecyclerView.ViewHolder implements View.OnClic
             while (input.charAt(front_spcae) != ' '&& input.charAt(front_spcae) != ',' && front_spcae >0)
                 front_spcae--;
             Log.e(TAG, "BattletagIdentifier: front_spacce: "+front_spcae );
-            output = input.substring(front_spcae,postion+4);
+            output = input.substring(front_spcae,postion+5);
             Log.e(TAG, "BattletagIdentifier: "+output);
         }catch (Exception e){
             Log.e(TAG, "BattletagIdentifier: "+e.getMessage());
@@ -61,7 +61,7 @@ public class RedditHolder extends RecyclerView.ViewHolder implements View.OnClic
             ClipboardManager clipboard = (ClipboardManager)view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("battletag",battletag);
             clipboard.setPrimaryClip(clipData);
-            Toast.makeText(view.getContext(),"Battletag has copied to clipboard",Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(),battletag+" has been copied to clipboard",Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(view.getContext(),"Can not find Battletag",Toast.LENGTH_SHORT).show();
         }
