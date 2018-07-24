@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/CardView1"
+    android:id="@+id/CardViewreddit"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="OnClick"
@@ -14,32 +14,25 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/textID"
+            android:id="@+id/textIDReddit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID"
             android:textSize="20sp" />
         <TextView
-            android:id="@+id/textContent"
+            android:id="@+id/textContentReddit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="content"
             android:textSize="20sp"
             android:layout_marginTop="5dp"/>
         <TextView
-            android:id="@+id/textTime"
+            android:id="@+id/textTimeReddit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="time"
             android:layout_marginTop="5dp"
             android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/textDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:text="Done"/>
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

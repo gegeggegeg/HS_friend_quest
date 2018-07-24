@@ -9,21 +9,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DataHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class RedditHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    private static final String TAG = "DataHolder";
+    private static final String TAG = "RedditHolder";
 
     private TextView textID;
     private TextView textContent;
     private TextView textTime;
-    private TextView textDone;
 
-    public DataHolder(View itemView) {
+    public RedditHolder(View itemView) {
         super(itemView);
-        textID = itemView.findViewById(R.id.textID);
-        textContent = itemView.findViewById(R.id.textContent);
-        textTime = itemView.findViewById(R.id.textTime);
-        textDone = itemView.findViewById(R.id.textDone);
+        textID = itemView.findViewById(R.id.textIDReddit);
+        textContent = itemView.findViewById(R.id.textContentReddit);
+        textTime = itemView.findViewById(R.id.textTimeReddit);
         itemView.setOnClickListener(this);
     }
 
@@ -37,10 +35,6 @@ public class DataHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
     public void setTextTime(String Time) {
         textTime.setText(Time);
-    }
-
-    public void setTextDone(String Done) {
-        textDone.setText(Done);
     }
 
     private String BattletagIdentifier (String input){

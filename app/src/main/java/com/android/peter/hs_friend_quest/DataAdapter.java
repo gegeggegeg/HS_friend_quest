@@ -3,12 +3,14 @@ package com.android.peter.hs_friend_quest;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataHolder> {
+    private static final String TAG = "DataAdapter";
 
     private ArrayList<AquiredData> list;
     private Context context;
@@ -37,4 +39,5 @@ public class DataAdapter extends RecyclerView.Adapter<DataHolder> {
     public int getItemCount() {
         return list.size();
     }
+
 }

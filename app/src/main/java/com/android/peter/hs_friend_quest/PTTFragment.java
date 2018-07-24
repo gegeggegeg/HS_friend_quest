@@ -1,6 +1,5 @@
 package com.android.peter.hs_friend_quest;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -28,29 +28,35 @@ import retrofit2.Retrofit;
 public class PTTFragment extends Fragment {
 
     private static final String TAG = "PTTFragment";
-    private ArrayList<AquiredData> stack = new ArrayList<>();
+    private static ArrayList<AquiredData> stack = new ArrayList<>();
     public static final String BASE_URL = "https://www.ptt.cc/bbs/";
     private static View result;
+    private RecyclerView recyclerView1;
+    private ProgressBar progressBar1;
     private Call<ResponseBody> call;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        RequestData();
+        stack = new ArrayList<>();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         result = inflater.inflate(R.layout.ptt_layout,container,false);
-        return result;
-    }
+        recyclerView1 = result.findViewById(R.id.RecyclerView1);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView1.setAdapter(new DataAdapter(stack,getContext()));
+        progressBar1 = result.findViewById(R.id.progressbar1);
+        if(stack.isEmpty())
+            progressBar1.setVisibility(View.VISIBLE);
+        else
+            progressBar1.setVisibility(View.INVISIBLE);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        if(savedInstanceState == null)
-            RequestData();
+        return result;
     }
 
     private void RequestData(){
@@ -64,7 +70,8 @@ public class PTTFragment extends Fragment {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
                     HTMLParse(response.body().string());
-                    setLayout();
+                    recyclerView1.setAdapter(new DataAdapter(stack,getContext()));
+                    progressBar1.setVisibility(View.INVISIBLE);
                 }catch (Exception e){
                     Log.e(TAG, "onResponse: "+e.getMessage() );
                 }
@@ -88,7 +95,8 @@ public class PTTFragment extends Fragment {
                     pushes.get(limit).select("span").get(2).text().contains("done")){
                 donelist.add(pushes.get(limit).select("span").get(1).text());
             }
-            if(pushes.get(limit).select("span").get(2).text().contains("友誼")) {
+            if(pushes.get(limit).select("span").get(2).text().contains("友誼")||
+                    pushes.get(limit).select("span").get(2).text().contains("互解")) {
                 String Done = "Done: No";
                 if(donelist.contains(pushes.get(limit).select("span").get(1).text())){
                     Done = "Done: Yes";
@@ -106,9 +114,4 @@ public class PTTFragment extends Fragment {
         }
     }
 
-    private void setLayout(){
-        RecyclerView recyclerView1 = result.findViewById(R.id.RecyclerView1);
-        recyclerView1.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView1.setAdapter(new DataAdapter(stack,getContext()));
-    }
 }
