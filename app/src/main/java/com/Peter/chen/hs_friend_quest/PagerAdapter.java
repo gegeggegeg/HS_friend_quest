@@ -1,11 +1,10 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 

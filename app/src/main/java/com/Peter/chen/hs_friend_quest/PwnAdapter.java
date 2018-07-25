@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -30,10 +30,23 @@ public class PwnAdapter extends RecyclerView.Adapter<PwnHolder> {
     @Override
     public void onBindViewHolder(@NonNull PwnHolder holder, int position) {
         holder.setPwnText(list.get(position));
+        String region = checkRegion(list.get(position));
+        holder.setTextRegion(region);
     }
 
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    private String checkRegion(String content) {
+        if(content.toLowerCase().contains("asia"))
+            return "Asia";
+        else if (content.toLowerCase().contains("na")||content.toLowerCase().contains("us"))
+            return "NA";
+        else if (content.toLowerCase().contains("eu"))
+            return "EU";
+        else
+            return "Unknown";
     }
 }

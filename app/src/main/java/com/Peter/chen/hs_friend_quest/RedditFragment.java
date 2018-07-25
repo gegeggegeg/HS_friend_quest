@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -91,7 +91,6 @@ public class RedditFragment extends Fragment {
         Elements Top = data.select("div.s136il31-0");
         int i = 0;
         while (list.size()<30){
-               String done = "Done: NO";
                if (!Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("done") &&
                        !Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("finish")&&
                     !Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("complete")&&
@@ -100,11 +99,12 @@ public class RedditFragment extends Fragment {
                        (Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("trade")||
                                Top.get(i).select("p.s570a4-10").text().toLowerCase().contains("quest"))) {
                    try {
+                       String region = checkRegion(Top.get(i).select("p.s570a4-10").text());
                        list.add(new AquiredData(
                                Top.get(i).select("a.s1461iz-1").text(),
                                Top.get(i).select("p.s570a4-10").text(),
                                Top.get(i).select("a.s1xnagc2-13").select("span").text(),
-                               done
+                               region
                        ));
                        Log.d(TAG, "HTMLParse: ID:" + list.get(i).getID());
                        Log.d(TAG, "HTMLParse: CONTENT:" + list.get(i).getCONTENT());
@@ -116,5 +116,16 @@ public class RedditFragment extends Fragment {
            }
            i++;
         }
+    }
+
+    private String checkRegion(String content) {
+        if(content.toLowerCase().contains("asia"))
+            return "Asia";
+        else if (content.toLowerCase().contains("na")||content.toLowerCase().contains("us"))
+            return "NA";
+        else if (content.toLowerCase().contains("eu"))
+            return "EU";
+        else
+            return "Unknown";
     }
 }

@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.android.peter.hs_friend_quest", appContext.getPackageName());
+        assertEquals("com.android.peter.com.peterchen.hs_friend_quest", appContext.getPackageName());
     }
 }

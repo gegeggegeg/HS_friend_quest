@@ -1,6 +1,4 @@
-package com.android.peter.hs_friend_quest;
-
-import android.support.v4.app.Fragment;
+package com.Peter.chen.hs_friend_quest;
 
 import org.junit.Test;
 

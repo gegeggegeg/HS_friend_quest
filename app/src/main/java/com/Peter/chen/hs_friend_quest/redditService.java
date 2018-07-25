@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

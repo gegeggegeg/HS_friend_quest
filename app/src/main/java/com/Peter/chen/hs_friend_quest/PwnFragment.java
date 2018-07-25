@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +14,6 @@ import android.widget.ProgressBar;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;

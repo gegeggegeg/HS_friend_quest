@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -13,15 +13,21 @@ public class PwnHolder extends RecyclerView.ViewHolder implements View.OnClickLi
 
     private static final String TAG = "PwnHolder";
     private TextView pwnText;
+    private TextView pwnRegion;
 
     public PwnHolder(View itemView) {
         super(itemView);
         pwnText = itemView.findViewById(R.id.pwnText);
+        pwnRegion = itemView.findViewById(R.id.pwnRegion);
         itemView.setOnClickListener(this);
     }
 
     public void setPwnText(String text){
         pwnText.setText(text);
+    }
+
+    public void setTextRegion(String Region) {
+        pwnRegion.setText(Region);
     }
 
     private String BattletagIdentifier (String input){

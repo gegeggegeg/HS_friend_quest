@@ -21,5 +21,13 @@
             android:text="text"
             android:textSize="20sp"/>
 
+        <TextView
+            android:id="@+id/pwnRegion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:textSize="15sp"
+            android:text="region" />
+
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -31,6 +31,7 @@ public class RedditAdapter extends RecyclerView.Adapter<RedditHolder> {
         holder.setTextID(list.get(position).getID());
         holder.setTextContent(list.get(position).getCONTENT());
         holder.setTextTime(list.get(position).getTIME());
+        holder.setTextRegion(list.get(position).getREGION());
     }
 
     @Override

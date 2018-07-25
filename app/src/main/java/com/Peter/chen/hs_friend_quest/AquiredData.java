@@ -1,16 +1,16 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 public class AquiredData {
     String ID;
     String CONTENT;
     String TIME;
-    String Done;
+    String REGION;
 
-    public AquiredData(String ID, String CONTENT, String TIME, String Done) {
+    public AquiredData(String ID, String CONTENT, String TIME, String REGION) {
         this.ID = ID;
         this.CONTENT = CONTENT;
         this.TIME = TIME;
-        this.Done = Done;
+        this.REGION = REGION;
     }
 
     public String getID() {
@@ -37,11 +37,11 @@ public class AquiredData {
         this.TIME = TIME;
     }
 
-    public String getDone() {
-        return Done;
+    public String getREGION() {
+        return REGION;
     }
 
-    public void setDone(String done) {
-        Done = done;
+    public void setREGION(String REGION) {
+        this.REGION = REGION;
     }
 }

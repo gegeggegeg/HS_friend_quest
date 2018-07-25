@@ -1,4 +1,4 @@
-package com.android.peter.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -96,21 +96,35 @@ public class PTTFragment extends Fragment {
             }
             if(pushes.get(limit).select("span").get(2).text().contains("友誼")||
                     pushes.get(limit).select("span").get(2).text().contains("互解")) {
-                String Done = "Done: No";
-                if(donelist.contains(pushes.get(limit).select("span").get(1).text())){
-                    Done = "Done: Yes";
-                    donelist.remove(pushes.get(limit).select("span").get(1).text());
-                }
+                String region = checkRegion(pushes.get(limit).select("span").get(2).text());
                 stack.add(new AquiredData(
                         pushes.get(limit).select("span").get(1).text(),
                         pushes.get(limit).select("span").get(2).text(),
                         pushes.get(limit).select("span").get(3).text(),
-                        Done
+                        region
                 ));
                 i++;
             }
             limit--;
         }
+        for(String done: donelist){
+            for(int index = 0; index< stack.size(); index++){
+                if(stack.get(index).getID().equals(done)) {
+                    stack.remove(index);
+                }
+            }
+        }
+    }
+
+    private String checkRegion(String content) {
+        if(content.contains("亞"))
+            return "Asia";
+        else if (content.contains("美"))
+            return "NA";
+        else if (content.contains("歐"))
+            return "EU";
+        else
+            return "Unknown";
     }
 
 }
