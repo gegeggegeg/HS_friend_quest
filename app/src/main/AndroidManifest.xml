@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.Peter.chen.hs_friend_quest.MainActivity">
+        <activity android:name="com.Peter.chen.hs_friend_quest.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

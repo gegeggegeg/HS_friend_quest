@@ -1,4 +1,4 @@
-package com.Peter.chen.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest.ui;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.Peter.chen.hs_friend_quest.R;
 
 public class PwnHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

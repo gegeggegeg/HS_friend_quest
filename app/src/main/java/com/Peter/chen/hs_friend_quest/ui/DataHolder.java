@@ -1,4 +1,4 @@
-package com.Peter.chen.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest.ui;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -9,21 +9,23 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RedditHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+import com.Peter.chen.hs_friend_quest.R;
 
-    private static final String TAG = "RedditHolder";
+public class DataHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+    private static final String TAG = "DataHolder";
 
     private TextView textID;
     private TextView textContent;
     private TextView textTime;
     private TextView textRegion;
 
-    public RedditHolder(View itemView) {
+    public DataHolder(View itemView) {
         super(itemView);
-        textID = itemView.findViewById(R.id.textIDReddit);
-        textContent = itemView.findViewById(R.id.textContentReddit);
-        textTime = itemView.findViewById(R.id.textTimeReddit);
-        textRegion = itemView.findViewById(R.id.textRegionReddit);
+        textID = itemView.findViewById(R.id.textID);
+        textContent = itemView.findViewById(R.id.textContent);
+        textTime = itemView.findViewById(R.id.textTime);
+        textRegion = itemView.findViewById(R.id.textRegion);
         itemView.setOnClickListener(this);
     }
 
@@ -63,7 +65,7 @@ public class RedditHolder extends RecyclerView.ViewHolder implements View.OnClic
     public void onClick(View view) {
         String battletag = BattletagIdentifier(textContent.getText().toString());
         Log.e(TAG, "onClick: "+battletag );
-        if(!battletag.isEmpty()){
+        if(battletag.contains("#")){
             ClipboardManager clipboard = (ClipboardManager)view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("battletag",battletag);
             clipboard.setPrimaryClip(clipData);

@@ -1,4 +1,4 @@
-package com.Peter.chen.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest.network;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

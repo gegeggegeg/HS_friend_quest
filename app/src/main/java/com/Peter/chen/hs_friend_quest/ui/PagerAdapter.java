@@ -1,4 +1,4 @@
-package com.Peter.chen.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +14,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public PagerAdapter(FragmentManager fm) {
         super(fm);
         fragmentlist = new ArrayList<>();
-        fragmentlist.add(new PTTFragment());
+        fragmentlist.add(new PttFragment());
         fragmentlist.add(new RedditFragment());
         fragmentlist.add(new PwnFragment());
     }

@@ -1,9 +1,11 @@
-package com.Peter.chen.hs_friend_quest;
+package com.Peter.chen.hs_friend_quest.ui;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+
+import com.Peter.chen.hs_friend_quest.R;
 
 
 public class MainActivity extends FragmentActivity {
